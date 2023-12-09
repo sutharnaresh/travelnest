@@ -1,4 +1,3 @@
-// Enable Prisma Client in the context of the Next.js app
 'use client';
 
 // Importing necessary styles and components for the calendar
