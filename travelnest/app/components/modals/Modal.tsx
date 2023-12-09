@@ -2,10 +2,10 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
+// import react from "react"
 import { Button } from "../Button";
 
-// Define the ModalProps interface
-interface ModalProps {
+interface ModProps {
   isOpen?: boolean;
   onClose: () => void;
   onSubmit: () => void;
@@ -19,7 +19,7 @@ interface ModalProps {
 }
 
 // Define the Modal component
-const Modal: React.FC<ModalProps> = ({
+const Modal: React.FC<ModProps> = ({
   isOpen,
   onClose,
   onSubmit,
