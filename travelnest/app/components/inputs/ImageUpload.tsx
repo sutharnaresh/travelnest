@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useCallback } from 'react';
 import { TbPhotoPlus } from 'react-icons/tb';
 
-// Declare a global variable for Cloudinary
+// global variable for Cloudinary
 declare global {
   var cloudinary: any;
 }
