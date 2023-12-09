@@ -1,11 +1,11 @@
 import { User, Reservation,Listing } from "@prisma/client";
 
-// Define a type for a safe version of Listing
+// type for a safe version of Listing
 export type SafeListing = Omit<Listing, "createdAt"> & {
   createdAt: string; 
 };
 
-// Define a type for a safe version of Reservation
+// type for a safe version of Reservation
 export type SafeReservation = Omit<
   Reservation,
   "createdAt" | "startDate" | "endDate" | "listing"
@@ -16,7 +16,7 @@ export type SafeReservation = Omit<
   endDate: string; 
 };
 
-// Define a type for a safe version of User
+// type for a safe version of User
 export type SafeUser = Omit<
   User,
   "createdAt" | "updatedAt" | "emailVerified"
