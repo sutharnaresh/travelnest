@@ -1,27 +1,23 @@
-// Enable Prisma Client in the context of the Next.js app
 "use client";
 
-// Import necessary hooks and components
 import useCountries from "@/app/hooks/useCountries";
 import Select from "react-select";
 
-// Define the structure of the country select value
 export type CountrySelectValue = {
-  flag: string;
+  flag: string; //country flag
   label: string;
-  latlng: number[];
+  latlng: number[]; //latitude and longitude of the location
   region: string;
   value: string;
 };
 
-// Define the properties for the CountrySelect component
-interface CountrySelectProps {
+interface SelectCountryProps {
   value?: CountrySelectValue; // Current selected value (optional)
   onChange: (value: CountrySelectValue) => void; // Callback function for value changes
 }
 
 // CountrySelect component as a functional component
-const CountrySelect: React.FC<CountrySelectProps> = ({ value, onChange }) => {
+const CountrySelect: React.FC<SelectCountryProps> = ({ value, onChange }) => {
   // Custom hook to get country data
   const { getAll } = useCountries();
 
@@ -65,5 +61,4 @@ const CountrySelect: React.FC<CountrySelectProps> = ({ value, onChange }) => {
   );
 };
 
-// Export the CountrySelect component as the default export
 export default CountrySelect;
