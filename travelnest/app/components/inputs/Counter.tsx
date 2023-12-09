@@ -1,11 +1,9 @@
 'use client';
 
-// Import necessary React hooks and icons
 import { useCallback } from 'react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
-// Define the properties for the Counter component
-interface CounterProps {
+interface CounterPropInt {
   title: string; // Title for the counter
   subtitle: string; // Subtitle for the counter
   value: number; // Current value of the counter
@@ -13,7 +11,7 @@ interface CounterProps {
 }
 
 // Counter component as a functional component
-export const Counter: React.FC<CounterProps> = ({ title, subtitle, value, onChange }) => {
+export const Counter: React.FC<CounterPropInt> = ({ title, subtitle, value, onChange }) => {
   // Callback function for incrementing the counter value
   const onAdd = useCallback(() => {
     onChange(value + 1);
