@@ -3,8 +3,7 @@
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
 import { BiRupee } from 'react-icons/bi';
 
-// Define the properties for the Input component
-interface InputProps {
+interface InputPropsInt {
   id: string; // Unique identifier for the input field
   label: string; // Label for the input field
   type?: string; // Type of the input field (default is "text")
@@ -16,7 +15,7 @@ interface InputProps {
 }
 
 // Input component as a functional component
-export const Input: React.FC<InputProps> = ({
+export const Input: React.FC<InputPropsInt> = ({
   id,
   label,
   type = 'text',
