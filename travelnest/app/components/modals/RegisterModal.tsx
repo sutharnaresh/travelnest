@@ -17,7 +17,7 @@ import {
 import useRegisterModal from "@/app/hooks/useRegisterModal";  
 import useLoginModal from "@/app/hooks/useLoginModal";
 
-// Define the RegisterModal component
+// RegisterModal component
 export const RegisterModal = () => {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
