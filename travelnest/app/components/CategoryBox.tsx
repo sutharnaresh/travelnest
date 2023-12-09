@@ -4,7 +4,7 @@ import React, { useCallback } from "react";
 import { IconType } from "react-icons";
 import qs from "query-string";
 
-// Define the props interface for the 'CategoryBox' component
+// Interface for the 'CategoryBox' component
 interface CategoryBoxProps {
   icon: IconType;  // Icon component from 'react-icons'
   label: string;  // Category label
@@ -12,25 +12,22 @@ interface CategoryBoxProps {
   description: string;  // Description of the category (not used in the component)
 }
 
-// Define the 'CategoryBox' functional component
 const CategoryBox: React.FC<CategoryBoxProps> = ({
   icon: Icon,
   label,
   selected,
 }) => {
   // Alias for 'icon' prop
-  // Access the 'useRouter' and 'useSearchParams' hooks from Next.js
   const router = useRouter();
+  // const navigate=useNavigation();
   const params = useSearchParams();
 
-  // Define a click handler using 'useCallback' to avoid unnecessary re-renders
+  //click handler using 'useCallback' to avoid unnecessary re-renders
   const handleClick = useCallback(() => {
     let currentQuery = {};
     if (params) {
       currentQuery = qs.parse(params.toString());
     }
-
-    // Create an updated query with the selected category
     const updatedQuery: any = {
       ...currentQuery,
       category: label,
