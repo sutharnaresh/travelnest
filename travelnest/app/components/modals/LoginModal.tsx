@@ -16,7 +16,7 @@ import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { useRouter } from "next/navigation";
 
-// Define the LoginModal component
+// LoginModal component
 export const LoginModal = () => {
   // Access the Next.js router
   const router = useRouter();
