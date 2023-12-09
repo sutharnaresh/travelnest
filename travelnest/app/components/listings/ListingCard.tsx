@@ -9,8 +9,7 @@ import HeartButton from "../HeartButton";
 import { format } from "date-fns";
 import { Button } from "../Button";
 
-// Define the properties for the ListingCard component
-interface ListingCardProps {
+interface ListCardProps {
   data: SafeListing; // Data for the listing
   reservation?: SafeReservation; // Reservation information for the listing
   onAction?: (id: string) => void; // Callback function for listing actions
@@ -21,7 +20,7 @@ interface ListingCardProps {
 }
 
 // ListingCard component as a functional component
-const ListingCard: React.FC<ListingCardProps> = ({
+const ListingCard: React.FC<ListCardProps> = ({
   data,
   reservation,
   onAction,
