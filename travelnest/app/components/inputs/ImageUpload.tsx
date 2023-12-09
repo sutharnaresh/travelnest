@@ -10,14 +10,13 @@ declare global {
   var cloudinary: any;
 }
 
-// Define the properties for the ImageUpload component
-interface ImageUploadProps {
+interface ImgUpload {
   onChange: (value: string) => void; // Callback function for image changes
   value: string; // Current image value
 }
 
 // ImageUpload component as a functional component
-export const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
+export const ImageUpload: React.FC<ImgUpload> = ({ onChange, value }) => {
   // Callback function for handling image uploads
   const handleUpload = useCallback(
     (result: any) => {
