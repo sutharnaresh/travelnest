@@ -1,6 +1,6 @@
 'use client'
 import { IconType } from "react-icons";
-// Define the 'ButtonProps' interface to describe the props for the 'Button' component
+// ButtonProps interface to describe the props for the 'Button' component
 interface ButtonProps {
   label: string;  // Text label for the button
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;  // Click event handler
@@ -9,8 +9,6 @@ interface ButtonProps {
   small?: boolean;  // Optional flag for small size
   icon?: IconType;  // Optional icon component from 'react-icons'
 }
-
-// Define the 'Button' functional component using the 'React.FC' type
 export const Button: React.FC<ButtonProps> = ({
   label,
   onClick,
