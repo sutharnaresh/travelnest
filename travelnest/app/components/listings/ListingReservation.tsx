@@ -4,7 +4,7 @@ import { Button } from "@/app/components/Button";
 import { Calender } from "../inputs/Calender";
 import { Range } from "react-date-range";
 
-// Define the properties for the ListingReservation component
+// Properties for the ListingReservation component
 interface ListingReservationProps {
   price: number; // Price per night for the listing
   dateRange: Range; // Selected date range for the reservation
