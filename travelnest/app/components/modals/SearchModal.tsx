@@ -13,7 +13,7 @@ import { Calender } from "../inputs/Calender";
 import Heading from "../Heading";
 import {Counter} from "../inputs/Counter";
 
-// Define type for props (currently empty)
+
 type Props = {};
 
 // Enum for different steps in the search modal
@@ -98,7 +98,6 @@ const SearchModal = (props: Props) => {
     router.push(url); // Push URL to update browser history
   };
 
-  // Define action label based on current step
   const actionLabel = useMemo(() => {
     if (step === STEPS.INFO) {
       return "Search"; // Show "Search" when on info step
@@ -106,7 +105,7 @@ const SearchModal = (props: Props) => {
     return "Next"; // Show "Next" for other steps
   }, [step]);
 
-  // Define secondary action label based on current step
+  // Secondary action label based on current step
   const secondaryActionLabel = useMemo(() => {
     if (step === STEPS.LOCATION) {
       return undefined; // Hide back button on location step
