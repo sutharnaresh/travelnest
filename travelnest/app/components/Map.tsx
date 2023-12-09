@@ -8,7 +8,6 @@ import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import makerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 
-// Avoiding TypeScript error related to leaflet icon URLs
 // @ts-ignore
 delete L.Icon.Default.prototype._getIconUrl;
 // Setting default options for Leaflet icons
