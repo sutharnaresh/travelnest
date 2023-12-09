@@ -12,8 +12,7 @@ const Map = dynamic(() => import("../Map"), {
   ssr: false
 });
 
-// Define the properties for the ListingInfo component
-interface ListingInfoProps {
+interface ListingInfomationAttr {
   user: SafeUser; // Information about the host user
   description: string; // Description of the listing
   guestCount: number; // Number of guests allowed
@@ -30,7 +29,7 @@ interface ListingInfoProps {
 }
 
 // ListingInfo component as a functional component
-const ListingInfo: React.FC<ListingInfoProps> = ({
+const ListingInfo: React.FC<ListingInformationAttr> = ({
   user,
   description,
   guestCount,
