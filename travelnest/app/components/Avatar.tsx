@@ -1,12 +1,11 @@
 'use client'
 import Image from "next/image"
 
-// Define the 'AvatarProps' interface to describe the props for the 'Avatar' component
+// AvatarProps interface to describe the props for the 'Avatar' component
 interface AvatarProp {
   src: string | null | undefined;
 }
 
-// Define the 'Avatar' functional component using the 'React.FC' type
 export const Avatar: React.FC<AvatarProp> = ({
   src
 }) => {
