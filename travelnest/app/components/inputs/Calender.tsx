@@ -6,7 +6,7 @@ import 'react-date-range/dist/styles.css';
 import { DateRange, Range, RangeKeyDict } from 'react-date-range';
 import 'react-date-range/dist/theme/default.css';
 
-// Define the properties for the custom calendar component
+// The properties for the custom calendar component
 interface CustomCalendarProps {
   value: Range; // Current date range value
   onChange: (value: RangeKeyDict) => void; // Callback function for date range changes
