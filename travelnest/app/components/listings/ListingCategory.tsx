@@ -2,15 +2,15 @@
 
 import { IconType } from "react-icons";
 
-// Define the properties for the ListingCategory component
-interface ListingCategoryProps {
+// properties for the ListingCategory component
+interface ListingsCategoryAttr {
   icon: IconType; // Icon component for the category
   label: string; // Label for the category
   description: string; // Description for the category
 }
 
 // ListingCategory component as a functional component
-const ListingCategory: React.FC<ListingCategoryProps> = ({
+const ListingCategory: React.FC<ListingsCategoryAttr> = ({
   icon: Icon,
   label,
   description,
