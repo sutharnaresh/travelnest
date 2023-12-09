@@ -3,7 +3,7 @@ import getReservations from "./getReservations";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import prisma from "@/app/libs/prismadb";
 
-// Function to get the user session using NextAuth.js
+// Function to get the user session using NextAuth.js//
 export async function getSession() {
   return await getServerSession(authOptions);
 }
