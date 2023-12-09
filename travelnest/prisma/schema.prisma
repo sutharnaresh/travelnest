@@ -1,15 +1,15 @@
-// Define Prisma client configuration
+// Prisma client configuration
 generator client {
   provider = "prisma-client-js"
 }
 
-// Define MongoDB datasource with the provided URL
+// MongoDB datasource with the provided URL
 datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
-// Define User model representing a user in the system
+//  User model representing a user in the system
 model User {
   id             String    @id @default(auto()) @map("_id") @db.ObjectId // Unique identifier for the user
   name           String?   // User's name
@@ -27,7 +27,7 @@ model User {
   reservations Reservation[] // User's reservations
 }
 
-// Define Account model representing external authentication accounts linked to a user
+// Account model representing external authentication accounts linked to a user
 model Account {
   id                String  @id @default(auto()) @map("_id") @db.ObjectId // Unique identifier for the account
   userId            String  @db.ObjectId // User ID linked to this account
@@ -49,7 +49,7 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
-// Define Listing model representing a property listing
+// Listing model representing a property listing
 model Listing {
   id            String        @id @default(auto()) @map("_id") @db.ObjectId // Unique identifier for the listing
   title         String        // Title of the listing
@@ -71,7 +71,7 @@ model Listing {
   reservations Reservation[] // Reservations associated with the listing
 }
 
-// Define Reservation model representing a user's reservation for a property
+// Reservation model representing a user's reservation for a property
 model Reservation {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId // Unique identifier for the reservation
   totalPrice Int      // Total price for the reservation
