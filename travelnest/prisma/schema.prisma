@@ -1,0 +1,87 @@
+// Define Prisma client configuration
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Define MongoDB datasource with the provided URL
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+// Define User model representing a user in the system
+model User {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId // Unique identifier for the user
+  name           String?   // User's name
+  email          String?   @unique // User's email address (unique)
+  emailVerified  DateTime? // Date and time when the email was verified
+  image          String?   // URL of the user's profile image
+  createdAt      DateTime  @default(now()) // Date and time when the user was created
+  hashedPassword String?   // Hashed password for user authentication
+  updatedAt      DateTime  @updatedAt // Date and time when the user was last updated
+  favouriteIds   String[]  @db.ObjectId // Array of favorite listing IDs
+
+  // Relationships with other models
+  account      Account[]    // User's linked accounts
+  listings     Listing[]    // User's listed properties
+  reservations Reservation[] // User's reservations
+}
+
+// Define Account model representing external authentication accounts linked to a user
+model Account {
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId // Unique identifier for the account
+  userId            String  @db.ObjectId // User ID linked to this account
+  provider          String // Authentication provider (e.g., Google, Facebook)
+  providerAccountId String // Account ID provided by the authentication provider
+  type              String // Type of account (e.g., Google, Facebook)
+  access_token      String? @db.String // Access token for authentication
+  refresh_token     String? @db.String // Refresh token for authentication
+  token_type        String? // Type of token
+  scope             String? // Scope of access
+  expires_at        Int?    // Expiration time of access token
+  session_state     String? // Session state for authentication
+  id_token          String? @db.String // ID token for authentication
+
+  // Relationship with the User model
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Ensure a unique combination of provider and providerAccountId
+  @@unique([provider, providerAccountId])
+}
+
+// Define Listing model representing a property listing
+model Listing {
+  id            String        @id @default(auto()) @map("_id") @db.ObjectId // Unique identifier for the listing
+  title         String        // Title of the listing
+  category      String        // Category of the listing
+  description   String        // Description of the listing
+  roomCount     Int           // Number of rooms in the property
+  bathroomCount Int           // Number of bathrooms in the property
+  guestCount    Int           // Maximum number of guests allowed
+  imageSrc      String        // URL of the main image for the listing
+  locationValue String        // Location value of the property
+  createdAt     DateTime      @default(now()) // Date and time when the listing was created
+  price         Int           // Price per night for the listing
+  userId        String        @db.ObjectId // User ID of the listing owner
+
+  // Relationship with the User model
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Relationship with Reservation model
+  reservations Reservation[] // Reservations associated with the listing
+}
+
+// Define Reservation model representing a user's reservation for a property
+model Reservation {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId // Unique identifier for the reservation
+  totalPrice Int      // Total price for the reservation
+  startDate  DateTime // Start date of the reservation
+  endDate    DateTime // End date of the reservation
+  createdAt  DateTime @default(now()) // Date and time when the reservation was created
+  listingId  String   @db.ObjectId // Listing ID for the reserved property
+  userId     String   @db.ObjectId // User ID of the reserving user
+
+  // Relationships with User and Listing models
+  listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

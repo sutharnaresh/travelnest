@@ -1,0 +1,28 @@
+@tailwind components;
+@tailwind utilities;
+@tailwind base;
+
+html,
+body,
+:root {
+  height: 100%;
+}
+
+/* Override z-index for specific Leaflet elements to ensure proper layering */
+.leaflet-pane,
+.leaflet-bottom,
+.leaflet-control,
+.leaflet-top {
+  z-index: 0 !important;
+}
+
+/* Override width for the React Date Range calendar month */
+.rdrMonth {
+  width: 100% !important;
+}
+
+/* Override width and font-size for the React Date Range calendar wrapper */
+.rdrCalendarWrapper {
+  font-size: 16px !important;
+  width: 100% !important;
+}
