@@ -6,7 +6,7 @@ import Image from "next/image";
 import Heading from "../Heading";
 import HeartButton from "../HeartButton";
 
-// Define the properties for the ListingHead component
+// Properties for the ListingHead component
 interface ListingHeadProps {
     title: string; // Title of the listing
     locationValue: string; // Location value of the listing
