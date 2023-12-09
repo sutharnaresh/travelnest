@@ -1,11 +1,8 @@
-// Enable Prisma Client in the context of the Next.js app
 'use client';
 
-// Import necessary types from react-icons
 import { IconType } from 'react-icons';
 
-// Define the properties for the CategoryInput component
-interface CategoryInputProps {
+interface InputCategoryProps {
   icon: IconType; // Icon component for the category
   label: string; // Label for the category
   selected?: boolean; // Indicates if the category is selected (optional)
@@ -13,7 +10,7 @@ interface CategoryInputProps {
 }
 
 // CategoryInput component as a functional component
-export const CategoryInput: React.FC<CategoryInputProps> = ({
+export const CategoryInput: React.FC<InputCategoryProps> = ({
   icon: Icon, // Destructure icon prop as Icon
   label, // Destructure label prop
   selected, // Destructure selected prop (optional)
