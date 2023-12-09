@@ -1,4 +1,3 @@
-// Import necessary dependencies and components
 'use client';
 import axios from "axios";
 import { useCallback, useState } from "react";
